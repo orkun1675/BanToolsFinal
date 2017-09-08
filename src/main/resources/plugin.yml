@@ -1,0 +1,129 @@
+name: BanToolsFinal
+main: com.orkunbulutduman.bantoolsfinal.BanToolsFinal
+version: 1.6
+
+commands:
+   bancheck:
+      description: Checks the ban records of a user.
+      usage: /bancheck <player>
+      permission: bantoolsfinal.bancheck
+      permission-message: You don't have permission.
+   banclear:
+      description: Clears the ban record for an user or IP.
+      usage: /banclear <player/IP>
+      permission: bantoolsfinal.banclear
+      permission-message: You don't have permission.
+   warn:
+      description: Warns a player.
+      usage: /warn <player> <reason>
+      permission: bantoolsfinal.warn
+      permission-message: You don't have permission.
+   ban:
+      description: Bans a player from the server.
+      usage: /ban <player> <reason>
+      permission: bantoolsfinal.ban
+      permission-message: You don't have permission.
+   tempban:
+      description: Bans a player for the defined time from the server.
+      usage: /tempban <player> <time> <reason>
+      permission: bantoolsfinal.tempban
+      permission-message: You don't have permission.
+   unban:
+      description: Un-bans a player from the server.
+      usage: /unban <player>
+      permission: bantoolsfinal.unban
+      permission-message: You don't have permission.
+   lockban:
+      description: Locks a ban so it cannot be undone.
+      usage: /lockban <player>
+      permission: bantoolsfinal.lockban
+      permission-message: You don't have permission.
+   unlockban:
+      description: Unlocks a ban so it can be undone.
+      usage: /unlockban <player>
+      permission: bantoolsfinal.unlockban
+      permission-message: You don't have permission.
+   banip:
+      description: Bans an IP from the server.
+      usage: /banip <ip> <reason>
+      permission: bantoolsfinal.banip
+      permission-message: You don't have permission.
+   tempbanip:
+      description: Bans a IP from the server for the defined time.
+      usage: /tempbanip <ip> <time> <reason>
+      permission: bantoolsfinal.tempbanip
+      permission-message: You don't have permission.
+   unbanip:
+      description: Un-bans an ip from the server.
+      usage: /unbanip <ip>
+      permission: bantoolsfinal.unbanip
+      permission-message: You don't have permission.
+   banimport:
+      description: Imports bukkit bans into to MYSQL.
+      usage: /banimport <player OR ip> <default_reason>
+      permission: bantoolsfinal.banimport
+      permission-message: You don't have permission.
+   bantoolsfinal:
+      description: Gives info about the plugin.
+      usage: /bantoolsfinal
+      permission: bantoolsfinal.bantoolsfinal
+      permission-message: You don't have permission.
+
+permissions:
+    bantoolsfinal.bancheck:
+        description: Access to the /bancheck command.
+        default: op
+    bantoolsfinal.banclear:
+        description: Access to the /banclear command.
+        default: op
+    bantoolsfinal.warn:
+        description: Access to the /warn command.
+        default: op
+    bantoolsfinal.ban:
+        description: Access to the /ban command.
+        default: op
+    bantoolsfinal.tempban:
+        description: Access to the /tempban command.
+        default: op
+    bantoolsfinal.tempban.extended:
+        description: Extends the tempban command time limit to the one set in the config.
+        default: op
+    bantoolsfinal.unban:
+        description: Access to the /unban command.
+        default: op
+    bantoolsfinal.unban.locked:
+        description: Access to the /unban command for locked bans.
+        default: op
+    bantoolsfinal.lockban:
+        description: Access to the /lockban command.
+        default: op
+    bantoolsfinal.unlockban:
+        description: Access to the /unlockban command.
+        default: op
+    bantoolsfinal.banip:
+        description: Access to the /banip command.
+        default: op
+    bantoolsfinal.tempbanip:
+        description: Access to the /tempbanip command.
+        default: op
+    bantoolsfinal.tempbanip.extended:
+        description: Extends the tempbanip command time limit to the one set in the config.
+        default: op
+    bantoolsfinal.unbanip:
+        description: Access to the /unbanip command.
+        default: op
+    bantoolsfinal.bantoolsfinal:
+        description: Access to the /bantoolsfinal command.
+        default: true
+    bantoolsfinal.reload:
+        description: Access to the /bantoolsfinal reload command.
+        default: op
+    bantoolsfinal.protected:
+        description: Cannot be banned, ip banned, or warned.
+        default: op
+    bantoolsfinal.inform:
+        description: Will be informed about bans, ipbans, and warnings.
+        default: op
+    bantoolsfinal.banimport:
+        description: Access to the /banimport command.
+        default: op

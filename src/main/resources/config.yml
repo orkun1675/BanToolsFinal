@@ -1,0 +1,240 @@
+General:
+  #Enable this if you are running BungeeCord server for cross server ban.
+  Enable_Bungee: false
+  #Should we listen to the Player Login Event and check if
+  #the user is banned before allowing them to join?
+  #In a Bungee environment: disabling this is recommended for subservers
+  #for efficiency.
+  #You only have to enable it for the default (initial) server, so it can
+  #kick banned players.
+  Enable_Login_Listener: true
+  #Should we enable mysql caching? True is faster, but false is better for ban
+  #syncing in bungee servers.
+  Enable_Listener_Cache: true
+  #More messages to the console?
+  Debug: false
+  #What is the max tempban/tempbanip length (in days) that players with the
+  #perm 'bantoolsfinal.tempban.extended'/'bantoolsfinal.tempbanip.extended'
+  #can issue?
+  Max_Temp_Ban_Duration_In_Days_Extended: 60
+  #What is the max tempban/tempbanip length (in days) that players without
+  #the extended perm can issue?
+  Max_Temp_Ban_Duration_In_Days_Limited: 15
+#MySQL connection info. Only MySQL is supported.
+#Server will SHUTDOWN if BanToolsFinal cannot connect to database.
+MySQL:
+  address: localhost
+  port: '3306'
+  database: database
+  username: username
+  password: password
+#Localization section. Copy over the default english texts and edit them.
+#Do not forget to edit the language variable. (defaults: english and turkish)
+#Dont delete %1% etc. they are replaced with variables such as player name.
+locale:
+  language: english
+  english:
+    'true': 'Yes'
+    'false': 'No'
+    never: Never
+    none: None
+    day: Day
+    days: Days
+    hour: Hour
+    hours: Hours
+    minute: Minute
+    minutes: Minutes
+    reloaded: '&6The plugin has been reloaded. (The setting Enable_Login_Listener
+      will be updated after restart.)'
+    cant_reload: '&6The plugin could not be reloaded.'
+    not_username: '&cYou have entered an incorrect username.'
+    not_userNameOrIP: '&cPlease enter an username or IP.'
+    not_ip: '&cThis is not a valid IP address.'
+    invalid_text: '&cThe reason contains invalid characters.'
+    no_permission: '&cYou don''t have permission.'
+    player_already_banned: '&cThat player is already banned.'
+    ban_already_locked: '&cThis players ban is already locked.'
+    ban_not_locked: '&cThis players ban is not locked.'
+    player_not_banned: '&cThat player is not banned.'
+    ip_already_banned: '&cThat IP is already banned.'
+    cannot_ban_yourself: '&cYou cannot ban yourself.'
+    cannot_ipban_yourself: '&cYou cannot ban your own IP.'
+    cannot_warn_yourself: '&cYou cannot warn yourself.'
+    player_protected: '&cThis player is protected. You cannot sue them.'
+    max_time_reached: '&6You cannot issue a temporary ban for more than %1% days.'
+    bancheck:
+      clearban: '&6Cleared ban records for player: &a%1%&6.'
+      clearipban: '&6Cleared ban records for IP: &a%1%&6.'
+      line1:
+        player: '&f=== &6Player: &a%1% &f==='
+        ip: '&f=== &6IP: &a%1% &f==='
+      line2: '&6Currently Banned: &a%1%'
+      line3: '&6Ban Reason: &a%1%'
+      line4: '&6Ban Expiration: &a%1%'
+      line5: '&6Baned By: &a%1%'
+      line6: '&6Baned At: &a%1%'
+      line7: '&6Ban Locked: &a%1%'
+      line8: '&6Total Bans: &a%1%'
+      line9: '&6Total Warnings: &a%1%'
+      line10: '&6Previous Bans:'
+      line11: '&6# &a%1%'
+      error: '&cAn error occurred while trying to get ban info.'
+    ban:
+      kick: |-
+        &4&lYou have been permanently banned from this server.
+        &5Reason: &3%1%
+        &5Banned By: &3%2%
+      inform: '&6Banned player &a%1% &6permanently with reason: &a%2%&6.'
+      broadcast: '&a%1% &6banned player &a%2% &6permanently with reason: &a%3%&6.'
+    tempban:
+      time_error: '&cThe time format you used could not be resolved.'
+      kick: |-
+        &4&lYou have been temporarily banned from this server.
+        &5Reason: &3%1%
+        &5Expiration: &3%2% &5Remaining: &3%3%
+        &5Banned By: &3%4%
+      inform: '&6Banned player &a%1% &6temporarly until &a%2% &6with reason: &a%3%&6.'
+      broadcast: '&a%1% &6banned player &a%2% &6temporarly until &a%3% &6with reason:
+        &a%4%&6.'
+    ipban:
+      kick: |-
+        &4&lYour IP Address has been permanently banned from this server.
+        &5Reason: &3%1%
+        &5Banned By: &3%2%
+      inform: '&6Banned IP &a%1% &6permanently with reason: &a%2%&6.'
+      broadcast: '&a%1% &6banned IP &a%2% &6permanently with reason: &a%3%&6.'
+    tempbanip:
+      time_error: '&cThe time format you used could not be resolved.'
+      kick: |-
+        &4&lYour IP Address has been temporarily banned from this server.
+        &5Reason: &3%1%
+        &5Expiration: &3%2% &5Remaining: &3%3%
+        &5Banned By: &3%4%
+      inform: '&6Banned IP &a%1% &6temporarly until &a%2% &6with reason: &a%3%&6.'
+      broadcast: '&a%1% &6banned IP &a%2% &6temporarly until &a%3% &6with reason:
+        &a%4%&6.'
+    warn:
+      warn: '&7[&4&lWARNING&7] &6%1% &5has warned you. &1Reason: &c%2%'
+      inform: '&6You have warned &a%1% &6with reason: &a%2%'
+      broadcast: '&a%1% &6warned &a%2% &6with reason: &a%3%'
+      player_not_found: '&6Could not find &a%1%&6.'
+    unban:
+      complete: '&6You have unbaned player: &a%1%&6.'
+      broadcast: '&a%1%  &6unbaned player: &a%2%&6.'
+    unbanip:
+      complete: '&6You have unbaned IP: &a%1%&6.'
+      broadcast: '&a%1%  &6unbaned IP: &a%2%&6.'
+    lockban:
+      inform: '&6User &a%1% &6now has a locked ban.'
+    unlockban:
+      inform: '&6User &a%1% &6now has an unlocked ban.'
+    import:
+      success: '&6A total of &a%1% &6bukkit &a%2% &6bans were successfully imported.
+        &6Please restart the server and delete the json file.'
+      fail: '&cBukkit &a%1% &cbans could not be imported. Check console for stack
+        trace.'
+  turkish:
+    'true': Evet
+    'false': Hayir
+    never: Suresiz
+    none: Yok
+    day: Gun
+    days: Gun
+    hour: Saat
+    hours: Saat
+    minute: Dakika
+    minutes: Dakika
+    reloaded: '&6Plugin tekrar yuklendi. (Enable_Login_Listener secenegi sunucu yeniden
+      baslattiginizda guncellenir.)'
+    cant_reload: '&6Plugin tekrar yuklenirken bir hata olustu.'
+    not_username: '&cYanlis bir kullanici adi girdiniz.'
+    not_userNameOrIP: '&cLutfen bir kullanici adi veya IP adresi giriniz.'
+    not_ip: '&cBu gecerli bir IP adresi degil.'
+    invalid_text: '&cKomutunuz gecersiz karakterler iceriyor. Turkce karakter kullanmayin.'
+    no_permission: '&cYetkiniz yok.'
+    player_already_banned: '&cBu kullanici zaten banlanmis.'
+    player_not_banned: '&cBu kullanici banli degil.'
+    ban_already_locked: '&cBu kullanicinin bani zaten kilitli.'
+    ban_not_locked: '&cBu kullanicinin bani kilitli degil.'
+    ip_already_banned: '&cBu UP adresi zaten banlanmis.'
+    cannot_ban_yourself: '&cKendinizi banlayamazsiniz.'
+    cannot_ipban_yourself: '&cKendi IP adresinizi banlayamazsiniz.'
+    cannot_warn_yourself: '&cKendinizi uyaramazsiniz.'
+    player_protected: '&cBu kullanici korumada, cezalandirilamaz.'
+    max_time_reached: '&6Sureli banlar en fazla %1% gun olabilir.'
+    bancheck:
+      clearban: '&6Ban kayitlari kullanici icin temizlendi: &a%1%&6.'
+      clearipban: '&6IP Ban kayitlari ip icin temizlendi: &a%1%&6.'
+      line1:
+        player: '&f=== &6Oyuncu: &a%1% &f==='
+        ip: '&f=== &6IP: &a%1% &f==='
+      line2: '&6Suan Banli: &a%1%'
+      line3: '&6Ban Sebebi: &a%1%'
+      line4: '&6Ban Suresi: &a%1%'
+      line5: '&6Banlayan: &a%1%'
+      line6: '&6Banlanma Tarihi: &a%1%'
+      line7: '&6Ban Kilitli: &a%1%'
+      line8: '&6Toplam Ban: &a%1%'
+      line9: '&6Toplam Uyari: &a%1%'
+      line10: '&6Onceki Banlar:'
+      line11: '&6# &a%1%'
+      error: '&cBan verisi alinirken bir hata olustu.'
+    ban:
+      kick: |-
+        &4&lSunucudan kalici olarak banlandiniz.
+        &5Sebep: &3%1%
+        &5Sorumlu Yetkili: &3%2%
+      inform: '&6Kullanici &a%1% &6kalici olarak banlandi. Sebep: &a%2%&6.'
+      broadcast: '&a%1%&6, &a%2% &6adli oyuncuyu kalici olarak banladi. Sebep: &a%3%&6.'
+    tempban:
+      time_error: '&cKullanmis oldugunuz tarih formati hatali. (Y)IL, (A)Y, (G)UN,
+        SAAT, (D)AKIKA'
+      kick: |-
+        &4&lSunucudan gecici olarak banlandiniz.
+        &5Sebep: &3%1%
+        &5Bitis Tarihi: &3%2% &5Kalan Sure: &3%3%
+        &5Sorumlu Yetkili: &3%4%
+      inform: '&6Kullanici &a%1% &6gecici olarak &a%2% &6tarihine kadar banlandi.
+        Sebep: &a%3%&6.'
+      broadcast: '&a%1%&6, &a%2% &6adli kullaniciyi &a%3% &6tarihine kadar banladi.
+        Sebep: &a%4%&6.'
+    ipban:
+      kick: |-
+        &4&lIP adresiniz sunucudan kalici olarak banlandi.
+        &5Sebep: &3%1%
+        &5Sorumlu Yetkili: &3%2%
+      inform: '&6IP adresi &a%1% &6kalici olarak banlandi. Sebep: &a%2%&6.'
+      broadcast: '&6IP adresi &a%2%&6, &a%1% &6tarafindan kalici olarak banlandi.
+        Sebep: &a%3%&6.'
+    tempbanip:
+      time_error: '&cKullanmis oldugunuz tarih formati hatali. (Y)IL, (A)Y, (G)UN,
+        SAAT, (D)AKIKA'
+      kick: |-
+        &4&lIP Adresiniz sunucudan gecici olarak banlandi.
+        &5Sebep: &3%1%
+        &5Bitis Tarihi: &3%2% &5Kalan Sure: &3%3%
+        &5Sorumlu Yetkili: &3%4%
+      inform: '&6IP Adresi &a%1% &6gecici olarak &a%2% &6tarihine kadar banlandi.
+        Sebep: &a%3%&6.'
+      broadcast: '&6IP adresi &a%2%&6, &a%1% &6tarafindan gecici olarak &a%3% &6tarihine
+        kadar banlandi. Sebep: &a%4%&6.'
+    warn:
+      warn: '&7[&4&lUYARI&7] &6%1% &5sizi uyardi. &1Sebep: &c%2%'
+      inform: '&a%1% &6adli kullaniciyi uyardiniz. Sebep: &a%2%'
+      broadcast: '&a%1%&6, &a%2% &6adli kullaniciyi uyardi. Sebep: &a%3%'
+      player_not_found: '&a%1% &6adli kullanici bulunamadi.'
+    unban:
+      complete: '&a%1% &6adli kullanicinin bani kaldirildi.'
+      broadcast: '&a%1%&6, &a%2% &6adli kullanicinin banini acti.'
+    unbanip:
+      complete: '&6IP adresi &a%1% &6uzerindeki ban kaldirildi.'
+      broadcast: '&a%1%&6, IP adresi &a%2% &6uzerindeki bani kaldirdi.'
+    lockban:
+      inform: '&a%1% &6adli kullanicinin bani kilitlendi.'
+    unlockban:
+      inform: '&a%1% &6adli kullanicinin ban kilidi kaldirildi.'
+    import:
+      success: '&6Toplamda &a%1% &a%2% &6bani ice aktarildi. &6Lutfen sunucuyu tekrar
+        baslatarak json dosyasini silin.'
+      fail: '&a%1% &cbanlari ice aktarilamadi. Lutfen olasi hata mesajlari icin konsolu
+        kontrol edin.'
